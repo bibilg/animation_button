@@ -75,3 +75,17 @@ button{
         transition: transform 250ms ease-in-out;
     }
 }
+
+.button3{
+    font-size: 30px;
+    padding: 2% 4%;
+    border: 2px solid black;
+    position: relative; // Obligatoire sinon le ::after se fera sur le parent donc ici body
+    z-index: 1; // Pour mettre au dessus du ::after pour voir le texte
+    overflow: hidden; // Sinon on voit le ::after apparaître
+    background-color: white;
+    color: black;
+    &:hover{
+
+    }
+}
