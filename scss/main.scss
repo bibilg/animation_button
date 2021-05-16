@@ -11,12 +11,17 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
     background-color: cadetblue;
 }
 
-.button{
-    font-size: 40px;
-    padding: 5% 10%;
+button{
+    margin: 20px ;
+}
+
+.button1{
+    font-size: 30px;
+    padding: 3% 6%;
     border: 2px solid black;
     border-radius: 20px;
     position: relative; // Obligatoire sinon le ::after se fera sur le parent donc ici body
@@ -41,5 +46,30 @@ body{
         transform: translateY(-100%); // Par défaut il est décalé et comme overflow hidden on le voit pas !
         transition: transform 250ms ease-in-out; // Transition sur le transform translate
 
+    }
+}
+
+.button2{
+    font-size: 30px;
+    padding: 3% 6%;
+    border: 2px solid black;
+    position: relative; // Obligatoire sinon le ::after se fera sur le parent donc ici body
+    z-index: 1; // Pour mettre au dessus du ::after pour voir le texte
+    overflow: hidden; // Sinon on voit le ::after apparaître
+    background-color: white;
+    color: white;
+    &:hover{ 
+        &::after{ // AU survol le ::after prendra ces propriétés
+        }
+    }
+    &::after{
+        content: ""; // OBLIGATOIRE
+        position: absolute; // Par rapport à .button
+        top:-1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        background-color: black;
+        z-index: -1;
     }
 }
